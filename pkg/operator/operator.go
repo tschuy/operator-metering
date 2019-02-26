@@ -620,6 +620,8 @@ func (op *Reporting) newPrometheusConnFromURL(url string) (prom.API, error) {
 		transportConfig.BearerToken = op.cfg.PrometheusConfig.BearerToken
 	}
 
+	log.Print(transportConfig)
+
 	roundTripper, err := transport.New(&transportConfig)
 	if err != nil {
 		return nil, err
